@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>つぶやきアプリ</title>
+</head>
+<body>
+ <h1>つぶやきアプリ</h1>
+ <form action="TweetInputServlet" method="post">
+  <p>
+   名前:<br> <input type="text" name="name" maxlength="50">
+  </p>
+  <p>
+   つぶやき:<br>
+   <textarea rows="5" cols="40" name="tweet"></textarea>
+  </p>
+  <p>
+   <input type="submit" value="送信">
+	 <input type="reset">
+   <input type="button" onclick="location.href='TweetListServlet'"
+    value="戻る">
+ </form>
+</html>

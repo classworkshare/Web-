@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学生登録画面</title>
+</head>
+<body>
+<h1>学生登録画面</h1>
+<form action="StudentAddServlet" method="post">
+  <table>
+    <tr>
+      <td>学生番号：</td>
+      <td><input type="text" name="studentno" maxlength="4"></td>
+    </tr>
+    <tr>
+      <td>氏名：</td>
+      <td><input type="text" name="studentname" maxlength="50"></td>
+    </tr>
+    <tr>
+      <td>学年：</td>
+      <td><input type="text" name="schoolyear" maxlength="1"></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="登録"></td>
+    </tr>
+    <tr>
+      <td><a href="index.html">メニューへ戻る</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>つぶやきアプリ</title>
+</head>
+<body>
+ <h1>つぶやきアプリ</h1>
+ <h2>ユーザ作成</h2>
+ <form action="UserInputServlet" method="post">
+  <p>
+   ユーザＩＤ:<input type="text" name="userid" maxlength="50"><br>
+   パスワード:<input type="password" name="passwd" maxlength="50"><br>
+   ロール： <input type="radio" name="role" value="users" checked>users
+   <input type="radio" name="role" value="admins">admins
+  </p>
+  <p>
+   <input type="submit" value="作成"> <input type="reset">
+   <input type="button" onclick="location.href='./UserListServlet'"
+    value="戻る">
+ </form>
+</body>
+</html>

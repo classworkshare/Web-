@@ -1,0 +1,93 @@
+７章のテキスト本文に掲載した記述の一部を紹介します。
+
+
+【server.xml】
+
+■--------- p226 での変更部分
+<!--
+<Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+resourceName="UserDatabase"/>
+-->
+
+■--------- 同上
+<Realm className="org.apache.catalina.realm.JDBCRealm"
+driverName="com.mysql.jdbc.Driver" 
+connectionURL="jdbc:mysql://localhost:3306/sampledb?serverTimezone=JST"
+connectionName="user"
+connectionPassword="password"
+userTable="users"
+userNameCol="userid"
+userCredCol="passwd"
+userRoleTable="user_roles"
+roleNameCol="role" />
+
+■--------- ここまで
+
+
+
+【SQL】
+
+■--------- p227 での掲載部分
+
+USE SAMPLEDB;
+
+CREATE TABLE USERS (
+  USERID  CHAR(20) PRIMARY KEY NOT NULL,
+  PASSWD  CHAR(20) NOT NULL
+);
+
+CREATE TABLE USER_ROLES (
+  USERID  CHAR(20) NOT NULL,
+  ROLE    CHAR(20) NOT NULL,
+  PRIMARY KEY (USERID, ROLE)
+);
+
+INSERT INTO USERS VALUES ('t0001', 'pass');
+INSERT INTO USERS VALUES ('s0001', 'pass');
+INSERT INTO USERS VALUES ('a0001', 'pass');
+
+INSERT INTO USER_ROLES VALUES ('t0001', 'teacher');
+INSERT INTO USER_ROLES VALUES ('s0001', 'student');
+INSERT INTO USER_ROLES VALUES ('a0001', 'admin');
+■--------- ここまで
+
+
+【web.xml】
+
+■--------- p232の追加部分
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Certification Area</web-resource-name>
+      <url-pattern>/menu2.html</url-pattern>
+      <url-pattern>/Menu3Servlet</url-pattern>
+      <url-pattern>/menu4.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>teacher</role-name>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/error.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+
+  <security-role>
+    <role-name>teacher</role-name>
+  </security-role>
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>student</role-name>
+  </security-role>
+
+■--------- ここまで
+
+
+

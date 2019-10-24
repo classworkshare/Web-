@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学生登録Beans - 入力画面HTML</title>
+</head>
+<body>
+
+<h1>学生登録Beans - 入力画面HTML</h1>
+学生情報の入力<p>
+
+<form action="StudentInfoServlet" method="get">
+  <div>
+    学生番号 <input type="text" name="studentno" size="6">
+    氏名 <input type="text" name="studentname" size="8">
+    学年 
+    <select name="schoolyear">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+  <input type="submit" value="送信">
+</form>
+
+</body>
+</html>

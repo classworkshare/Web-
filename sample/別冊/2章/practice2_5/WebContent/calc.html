@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<head><title>四則演算処理</title></head>
+<body>
+<h1>四則演算処理</h1>
+<form action="CalcServlet" method="get">
+  <table>
+    <tr>
+      <td style="text-align: center">数字1つ目<br>
+        <input size="5" type="text" name="number1" value="30"></td>
+      <td>
+        <input type="radio" name="execute" value="addition" checked>＋<br>
+        <input type="radio" name="execute" value="subtraction">－<br>
+        <input type="radio" name="execute" value="multiplication">×<br>
+        <input type="radio" name="execute" value="division">÷</td>
+      <td style="text-align: center">数字２つ目<br>
+        <input size="5" type="text" name="number2" value="20"></td>
+      <td style="text-align: center">
+        <input type="submit" value="="></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

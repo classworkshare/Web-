@@ -1,0 +1,44 @@
+ÅySQLÅz
+
+CREATE DATABASE TWEET;
+USE TWEET;
+
+CREATE TABLE TWEET (
+  NAME  VARCHAR(50) NOT NULL,
+  TWEET VARCHAR(250),
+  DATE  DATETIME
+);
+
+GRANT ALL PRIVILEGES ON tweet.* TO 'user'@'localhost';
+
+
+====================================================================
+
+CREATE TABLE USERS (
+  USERID   CHAR(20) PRIMARY KEY NOT NULL,
+  PASSWORD CHAR(20) NOT NULL
+);
+
+CREATE TABLE USER_ROLES (
+  USERID  CHAR(20) NOT NULL,
+  ROLE    CHAR(20) NOT NULL,
+  PRIMARY KEY (USERID, ROLE)
+);
+
+INSERT INTO USERS VALUES ('u0001', 'pass');
+INSERT INTO USERS VALUES ('a0001', 'pass');
+
+INSERT INTO USER_ROLES VALUES ('u0001', 'users');
+INSERT INTO USER_ROLES VALUES ('a0001', 'admins');
+
+
+
+Åyserver.xmlÅz
+
+<Realm className="org.apache.catalina.realm.JDBCRealm"
+ driverName="com.mysql.jdbc.Driver"
+ connectionURL="jdbc:mysql://localhost:3306/tweet?serverTimezone=JST"
+ connectionName="user" connectionPassword="password"
+ userTable="users" userNameCol="userid" userCredCol="password"
+ userRoleTable="user_roles" roleNameCol="role" />
+

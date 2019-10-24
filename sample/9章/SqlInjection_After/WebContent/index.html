@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SQLインジェクション（脆弱性なし）</title>
+</head>
+<body>
+  <h2>科目試験  結果確認</h2>
+  <form action="SqlInjectionServlet" method="get">
+    氏名を入力してください。<br>
+    <br>
+    氏名　<input type="text" name="studentname"><br>
+    <input type="submit" value="送信">
+    <input type="reset"  value="キャンセル">
+  </form>
+</body>
+</html>
